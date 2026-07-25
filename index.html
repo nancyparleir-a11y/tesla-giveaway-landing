@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Car Giveaway — Claim Your Car</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Claim Page -->
+    <div id="claimPage" class="page active">
+        <div class="container">
+            <div class="claim-wrapper">
+                <!-- Left Section: Form -->
+                <div class="claim-form-section">
+                    <div class="claim-header">
+                        <h1 class="brand-text">Tesla</h1>
+                        <h2 class="claim-title">🎉 You've been selected!</h2>
+                        <p class="claim-subtitle">Fill in your delivery details.</p>
+                    </div>
+
+                    <form id="claimForm" class="claim-form">
+                        <!-- Car Model Selection -->
+                        <div class="form-section">
+                            <h3 class="section-title">Choose Your Tesla Car Model</h3>
+                            <div class="car-models-grid">
+                                <label class="car-model-card active" data-model="Model 3">
+                                    <input type="radio" name="carModel" value="Model 3" checked>
+                                    <div class="model-content">
+                                        <span class="model-name">Tesla Model 3</span>
+                                        <span class="model-year">2025</span>
+                                    </div>
+                                </label>
+                                <label class="car-model-card" data-model="Model Y">
+                                    <input type="radio" name="carModel" value="Model Y">
+                                    <div class="model-content">
+                                        <span class="model-name">Tesla Model Y</span>
+                                        <span class="model-year">2025</span>
+                                    </div>
+                                </label>
+                                <label class="car-model-card" data-model="Model S">
+                                    <input type="radio" name="carModel" value="Model S">
+                                    <div class="model-content">
+                                        <span class="model-name">Tesla Model S</span>
+                                        <span class="model-year">2025</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">Personal Information</h3>
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Address -->
+                        <div class="form-section">
+                            <h3 class="section-title">Delivery Address</h3>
+                            <div class="form-group">
+                                <label for="street">Street Address</label>
+                                <input type="text" id="street" name="street" placeholder="123 Main Street" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" placeholder="New York" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <input type="text" id="state" name="state" placeholder="NY" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <input type="text" id="country" name="country" placeholder="United States" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP / Postal Code</label>
+                                    <input type="text" id="zip" name="zip" placeholder="10001" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="goToCheckout()">
+                            Order Now →
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Section: Order Summary -->
+                <div class="order-summary-section">
+                    <div class="order-summary-card">
+                        <div class="summary-header">
+                            <h3>Tesla Model 3 2025</h3>
+                            <p class="summary-description">Brand New Electric Vehicle</p>
+                        </div>
+
+                        <div class="summary-price">
+                            <span class="price-label">Price:</span>
+                            <span class="price-value">FREE 🎉</span>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-delivery">
+                            <span class="delivery-label">DELIVER TO:</span>
+                            <p id="deliveryDisplay" class="delivery-address">
+                                <span class="placeholder-text">Enter your address above</span>
+                            </p>
+                        </div>
+
+                        <div class="summary-note">
+                            ✨ Premium electric vehicle included
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Page -->
+    <div id="checkoutPage" class="page">
+        <div class="container">
+            <div class="checkout-wrapper">
+                <!-- Left Section: Delivery Options -->
+                <div class="checkout-form-section">
+                    <button class="back-btn" onclick="goToClaim()">← Back</button>
+
+                    <div class="checkout-header">
+                        <h2>Select Delivery Option</h2>
+                    </div>
+
+                    <!-- Delivery Options -->
+                    <div class="delivery-options">
+                        <label class="delivery-card active" data-fee="299" data-time="10–14 business days">
+                            <input type="radio" name="delivery" value="Standard" checked>
+                            <div class="delivery-content">
+                                <div class="delivery-top">
+                                    <h4>Standard Delivery</h4>
+                                    <span class="delivery-fee">$299</span>
+                                </div>
+                                <p class="delivery-desc">Standard international shipping & customs clearance</p>
+                                <div class="delivery-time">⏱ 10–14 business days</div>
+                            </div>
+                        </label>
+
+                        <label class="delivery-card" data-fee="349" data-time="5–7 business days">
+                            <input type="radio" name="delivery" value="Express">
+                            <div class="delivery-content">
+                                <div class="delivery-top">
+                                    <h4>Express Delivery</h4>
+                                    <span class="delivery-fee">$349</span>
+                                </div>
+                                <p class="delivery-desc">Priority shipping with real-time tracking updates</p>
+                                <div class="delivery-time">⏱ 5–7 business days</div>
+                            </div>
+                        </label>
+
+                        <label class="delivery-card" data-fee="399" data-time="3–5 business days">
+                            <input type="radio" name="delivery" value="Premium">
+                            <div class="delivery-content">
+                                <div class="delivery-top">
+                                    <h4>Premium Delivery</h4>
+                                    <span class="delivery-fee">$399</span>
+                                </div>
+                                <p class="delivery-desc">Fastest dispatch, white-glove doorstep delivery</p>
+                                <div class="delivery-time">⏱ 3–5 business days</div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Payment Section -->
+                    <div class="payment-section">
+                        <h3 class="section-title">Select Payment Method</h3>
+                        <div class="payment-options">
+                            <label class="payment-card active">
+                                <input type="radio" name="payment" value="credit" checked>
+                                <span class="payment-icon">💳</span>
+                                <span class="payment-label">Credit Card</span>
+                            </label>
+                            <label class="payment-card">
+                                <input type="radio" name="payment" value="apple">
+                                <span class="payment-icon">🍎</span>
+                                <span class="payment-label">Apple Gift Card</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Upload Payment Proof -->
+                    <div class="payment-upload-section">
+                        <h3 class="section-title">Upload Payment Proof</h3>
+                        <div class="upload-area">
+                            <input type="file" id="paymentProof" accept="image/*" hidden>
+                            <button type="button" class="upload-btn" onclick="document.getElementById('paymentProof').click()">
+                                Tap to upload proof
+                            </button>
+                            <p id="uploadStatus" class="upload-status"></p>
+                        </div>
+
+                        <!-- Confirmation Checkbox -->
+                        <label class="confirmation-checkbox">
+                            <input type="checkbox" id="confirmPayment" required>
+                            <span>I've Paid — Confirm My Order ✓</span>
+                        </label>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="goToConfirmation()" id="payBtn">
+                        Pay for Delivery Now →
+                    </button>
+                </div>
+
+                <!-- Right Section: Order Summary -->
+                <div class="checkout-summary-section">
+                    <div class="order-summary-card">
+                        <div class="summary-status">
+                            ✅ Delivering: <span id="carModelDisplay">Tesla Model 3 2025</span> to
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-item">
+                            <span class="label">Delivery Fee:</span>
+                            <span class="value" id="summaryFee">$299</span>
+                        </div>
+
+                        <div class="summary-item">
+                            <span class="label">Car Value:</span>
+                            <span class="value">FREE</span>
+                        </div>
+
+                        <div class="summary-item">
+                            <span class="label">Estimated Delivery:</span>
+                            <span class="value" id="summaryTime">10–14 business days</span>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-total">
+                            <span class="label">Total to Pay:</span>
+                            <span class="total-value" id="totalValue">$299</span>
+                        </div>
+
+                        <div class="summary-note">
+                            💰 Delivery fee only — car is completely free!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Page -->
+    <div id="confirmationPage" class="page">
+        <div class="container">
+            <div class="confirmation-wrapper">
+                <div class="confirmation-content">
+                    <h1 class="brand-text">Tesla</h1>
+                    <div class="confirmation-status">
+                        �� Order Received!
+                    </div>
+                    <p class="confirmation-message">
+                        Once your payment is verified, you will get a message on your phone with tracking information.
+                    </p>
+
+                    <!-- Order Details Card -->
+                    <div class="confirmation-card">
+                        <div class="detail-row">
+                            <span class="detail-label">Car:</span>
+                            <span class="detail-value" id="confirmCarModel">Tesla Model 3 2025</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value" id="confirmName">John Doe</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Delivery Method:</span>
+                            <span class="detail-value" id="confirmDelivery">Standard Delivery</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Fee Paid:</span>
+                            <span class="detail-value" id="confirmFee">$299</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Tracking ID:</span>
+                            <span class="detail-value" id="trackingId">TES-2025-XXXX</span>
+                        </div>
+                    </div>
+
+                    <!-- Redirect Message -->
+                    <div class="redirect-section">
+                        <p>Redirecting to home in <span id="countdown">13</span>s</p>
+                        <a href="#" class="link-text">Click here if not redirected</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
