@@ -1,0 +1,840 @@
+/* ============================================
+   TESLA GIVEAWAY - MODERN PREMIUM STYLING
+   ============================================ */
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --accent-color: #e82127;
+    --gray-light: #f5f5f5;
+    --gray-medium: #cccccc;
+    --gray-dark: #333333;
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   LAYOUT & CONTAINERS
+   ============================================ */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ============================================
+   CLAIM PAGE
+   ============================================ */
+
+.claim-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.claim-form-section {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.claim-header {
+    margin-bottom: 40px;
+}
+
+.brand-text {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.claim-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.claim-subtitle {
+    font-size: 18px;
+    color: var(--gray-dark);
+    font-weight: 400;
+}
+
+/* ============================================
+   FORM STYLING
+   ============================================ */
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.car-models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.car-model-card {
+    position: relative;
+    padding: 24px;
+    border: 2px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    background-color: var(--gray-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.car-model-card input {
+    position: absolute;
+    opacity: 0;
+}
+
+.car-model-card.active,
+.car-model-card:has(input:checked) {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: scale(1.02);
+}
+
+.model-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.model-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.model-year {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    transition: var(--transition);
+    background-color: var(--secondary-color);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+    width: 100%;
+    padding: 16px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    opacity: 0.7;
+}
+
+/* ============================================
+   ORDER SUMMARY CARD
+   ============================================ */
+
+.order-summary-section {
+    animation: slideInRight 0.6s ease-out;
+    position: sticky;
+    top: 40px;
+}
+
+.order-summary-card {
+    background: var(--gray-light);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.order-summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+}
+
+.summary-header {
+    margin-bottom: 24px;
+}
+
+.summary-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.summary-description {
+    font-size: 14px;
+    color: var(--gray-dark);
+}
+
+.summary-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.price-label {
+    color: var(--gray-dark);
+}
+
+.price-value {
+    font-size: 24px;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.summary-divider {
+    height: 1px;
+    background-color: var(--gray-medium);
+    margin: 20px 0;
+}
+
+.summary-delivery {
+    margin-bottom: 20px;
+}
+
+.delivery-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-dark);
+    margin-bottom: 10px;
+}
+
+.delivery-address {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--primary-color);
+}
+
+.placeholder-text {
+    color: var(--gray-medium);
+    font-style: italic;
+}
+
+.summary-note {
+    background-color: var(--secondary-color);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--gray-dark);
+    margin-top: 20px;
+}
+
+/* ============================================
+   CHECKOUT PAGE
+   ============================================ */
+
+.checkout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.checkout-form-section {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.checkout-header {
+    margin-bottom: 30px;
+}
+
+.checkout-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* ============================================
+   DELIVERY OPTIONS
+   ============================================ */
+
+.delivery-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.delivery-card {
+    position: relative;
+    padding: 24px;
+    border: 2px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.delivery-card input {
+    position: absolute;
+    opacity: 0;
+}
+
+.delivery-card.active,
+.delivery-card:has(input:checked) {
+    border-color: var(--primary-color);
+    background-color: var(--gray-light);
+    transform: translateX(8px);
+}
+
+.delivery-content {
+    pointer-events: none;
+}
+
+.delivery-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.delivery-top h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.delivery-fee {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.delivery-desc {
+    font-size: 13px;
+    color: var(--gray-dark);
+    margin-bottom: 12px;
+}
+
+.delivery-time {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* ============================================
+   PAYMENT SECTION
+   ============================================ */
+
+.payment-section {
+    margin-bottom: 40px;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.payment-card {
+    position: relative;
+    padding: 20px;
+    border: 2px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.payment-card input {
+    position: absolute;
+    opacity: 0;
+}
+
+.payment-card.active,
+.payment-card:has(input:checked) {
+    border-color: var(--primary-color);
+    background-color: var(--gray-light);
+}
+
+.payment-icon {
+    font-size: 24px;
+}
+
+.payment-label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ============================================
+   FILE UPLOAD SECTION
+   ============================================ */
+
+.payment-upload-section {
+    margin-bottom: 30px;
+}
+
+.upload-area {
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    width: 100%;
+    padding: 24px;
+    border: 2px dashed var(--gray-medium);
+    border-radius: var(--border-radius);
+    background-color: var(--gray-light);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+    color: var(--gray-dark);
+}
+
+.upload-btn:hover {
+    border-color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.upload-status {
+    font-size: 12px;
+    color: var(--accent-color);
+    margin-top: 8px;
+    text-align: center;
+}
+
+.confirmation-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.confirmation-checkbox input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+/* ============================================
+   CHECKOUT SUMMARY
+   ============================================ */
+
+.checkout-summary-section {
+    animation: slideInRight 0.6s ease-out;
+    position: sticky;
+    top: 40px;
+}
+
+.summary-status {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--gray-dark);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.summary-item .label {
+    font-weight: 600;
+    color: var(--gray-dark);
+}
+
+.summary-item .value {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    margin-top: 20px;
+}
+
+.summary-total .label {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.total-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* ============================================
+   CONFIRMATION PAGE
+   ============================================ */
+
+.confirmation-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.confirmation-content {
+    text-align: center;
+    max-width: 500px;
+    animation: slideUp 0.6s ease-out;
+}
+
+.confirmation-status {
+    font-size: 64px;
+    margin: 30px 0 20px;
+    animation: bounce 1s ease-in-out 0.3s infinite;
+}
+
+.confirmation-message {
+    font-size: 18px;
+    color: var(--gray-dark);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.confirmation-card {
+    background: var(--gray-light);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-medium);
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-medium);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray-dark);
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.redirect-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.redirect-section p {
+    font-size: 14px;
+    color: var(--gray-dark);
+}
+
+.link-text {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.link-text:hover {
+    opacity: 0.7;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .claim-wrapper,
+    .checkout-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .order-summary-section,
+    .checkout-summary-section {
+        position: static;
+    }
+
+    .car-models-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .claim-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .page {
+        padding: 20px 0;
+    }
+
+    .brand-text {
+        font-size: 24px;
+    }
+
+    .claim-title {
+        font-size: 28px;
+    }
+
+    .car-models-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .delivery-options {
+        flex-direction: column;
+    }
+
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary-card,
+    .confirmation-card {
+        padding: 20px;
+    }
+
+    .confirmation-status {
+        font-size: 48px;
+    }
+
+    .confirmation-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .page {
+        padding: 15px 0;
+    }
+
+    .brand-text {
+        font-size: 20px;
+    }
+
+    .claim-title {
+        font-size: 22px;
+    }
+
+    .section-title {
+        font-size: 14px;
+    }
+
+    .form-group input {
+        padding: 12px 14px;
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    .confirmation-status {
+        font-size: 40px;
+        margin: 20px 0 16px;
+    }
+}
